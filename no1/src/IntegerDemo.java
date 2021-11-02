@@ -9,7 +9,7 @@ public class IntegerDemo {
         int n = obj.intValue();  // 手动拆箱
         System.out.println("n = " + n);
 
-        Integer obj1 = new Integer(500);
+        Integer obj1 = 500;
         System.out.println("obj 等价于 obj1？" + obj.equals(obj1));
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入: ");
