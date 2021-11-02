@@ -8,5 +8,10 @@ public class ArrayDemo {
         String[] arr2 = { "2", "3", "4", "5" };
 
         System.out.printf("Array arr[2] is: %d, arr2[1] is: %s\n", arr[2], arr2[1]);
+
+        // 特殊的专为数组设计的 for 循环
+        for (int x: arr) {
+            System.out.println(x + ", ");
+        }
     }
 }
