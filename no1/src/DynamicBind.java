@@ -6,6 +6,9 @@ public class DynamicBind {
         obj.cry();
         obj = new DogIV();
         obj.cry();
+
+        Cat cat = new Cat();
+        cat.walk();
     }
 }
 
@@ -14,13 +17,17 @@ class AnimalIV {
     public void cry(){
         System.out.println("不知道怎么叫");
     }
-
 }
 
 class Cat extends AnimalIV {
     // 猫的叫声
     public void cry(){
         System.out.println("喵喵~");
+    }
+
+    // 猫走路
+    public void walk() {
+        System.out.println("猫正在走路......");
     }
 }
 
