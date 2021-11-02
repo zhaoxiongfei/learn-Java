@@ -1,6 +1,6 @@
 public class Overwrite {
     public static void main(String[] args) {
-        DogIV myDog = new DogIV("花花");
+        DogV myDog = new DogV("花花");
         myDog.say();  // 子类的实例调用子类中的方法
 
         AnimalIII myAnimal= new AnimalIII("贝贝");
@@ -19,9 +19,9 @@ class AnimalIII {
     }
 }
 
-class DogIV extends AnimalIII {
+class DogV extends AnimalIII {
     // 构造方法不能被继承，通过super()调用
-    public DogIV(String name) {
+    public DogV(String name) {
         super(name);
     }
 
