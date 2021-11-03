@@ -12,6 +12,10 @@ public class InterfaceDemo {
         sh1.writeData("hello");
         sh2.writeData("world");
         sh3.writeData("hahaha");
+
+        if (sh1 instanceof fixHdd) {
+            ((SeagateHdd) sh1).doFix();
+        }
     }
 }
 
@@ -45,6 +49,7 @@ class SeagateHdd implements SataHdd, fixHdd {
     }
     // 维修希捷硬盘
     public boolean doFix() {
+        out.println("希捷硬盘正在维修");
         return true;
     }
 }
