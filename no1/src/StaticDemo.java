@@ -1,8 +1,17 @@
-import java.sql.Statement;
+import java.util.Random;
+
+import static java.lang.System.*;
+import static java.lang.Math.random;
 
 public class StaticDemo {
     static int i;
     int j;
+
+    // 块是由大括号包围的一段代码。静态初始器(Static Initializer)是一个存在于类中、方法外面的静态块。静态初始器仅仅在类装载的时候（第一次使用类的时候）执行一次，往往用来初始化静态变量。
+    static {
+        i = 2;
+    }
+
     public static void main(String[] args) {
         StaticDemo obj1 = new StaticDemo();
         obj1.i = 10;
@@ -10,15 +19,16 @@ public class StaticDemo {
 
         StaticDemo obj2 = new StaticDemo();
 
-        System.out.println("StaticDemo.i = " + StaticDemo.i);
-        System.out.println("obj1.i=" + obj1.i + ", obj1.j=" + obj1.j);
+        out.println("StaticDemo.i = " + StaticDemo.i);
+        out.println("obj1.i=" + obj1.i + ", obj1.j=" + obj1.j);
         StaticDemo.i = 100;
-        System.out.println("obj2.i=" + obj2.i + ", obj2.j=" + obj2.j);
+        out.println("obj2.i=" + obj2.i + ", obj2.j=" + obj2.j);
         obj2.i = 1000;
-        System.out.println("II obj1.i=" + obj1.i + ", obj1.j=" + obj1.j);
-        System.out.println("II StaticDemo.i = " + StaticDemo.i);
+        out.println("II obj1.i=" + obj1.i + ", obj1.j=" + obj1.j);
+        out.println("II StaticDemo.i = " + StaticDemo.i);
 
-        System.out.printf("Static method Math.pow(20, 10) = %.0f", Math.pow(10, 8));
+        out.printf("Static method Math.pow(20, 10) = %.0f\n", Math.pow(10, 8));
+        out.printf("import static method random = %.16f\n", random());
     }
 }
 
