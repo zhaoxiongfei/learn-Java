@@ -21,10 +21,11 @@ public class ExceptionDemo {
                     throw new Exception("Type chars is errors: " + num);
             }
         } catch (Exception e) {
-            System.out.printf("Has wrong happened: %s\n", e.getMessage());
+            System.out.printf("Has wrong happened\n");
+            e.printStackTrace();
         }
 
-        StackOverflow.test(5);
+        // StackOverflow.test(5);
     }
 }
 
