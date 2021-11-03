@@ -17,6 +17,8 @@ public class StaticDemo {
         obj2.i = 1000;
         System.out.println("II obj1.i=" + obj1.i + ", obj1.j=" + obj1.j);
         System.out.println("II StaticDemo.i = " + StaticDemo.i);
+
+        System.out.printf("Static method Math.pow(20, 10) = %.0f", Math.pow(10, 8));
     }
 }
 
