@@ -18,6 +18,7 @@ class ListNode {
 }
 
 public class Solution {
+    // T1 两数之和
     public int[] twoSum(int[] nums, int target) {
         int len = nums.length;
         if (len == 0) return new int[]{};
@@ -43,6 +44,7 @@ public class Solution {
         return new int[]{};
     }
 
+    // T2 两数相加
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode c1 = l1;
         ListNode c2 = l2;
@@ -74,6 +76,7 @@ public class Solution {
         return ans.next;
     }
 
+    // T3 无重复字符的最长子串
     public int lengthOfLongestSubstring(String s) {
         int len = s.length();
         if (len == 0 || s == null || s == "") return 0;
@@ -98,6 +101,7 @@ public class Solution {
         return Math.max(max, map.size());
     }
 
+    // T4 寻找两个正序数组的中位数
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int l1 = nums1.length;
         int l2 = nums2.length;
@@ -142,8 +146,40 @@ public class Solution {
         return ans;
     }
 
+    // T5 最长回文子串
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (len < 2) return s;
+
+        int maxLen = 1;
+        int start = 0;
+
+        // 初始化动态规划表
+        boolean[][] dp = new boolean[len][len];
+        for (int i = 0; i < len; i += 1) dp[i][i] = true;
+
+        for (int j = 1; j < len; j += 1) {
+            for (int i = 0; i < j; i += 1) {
+                if (s.charAt(i) != s.charAt(j)) {
+                    dp[i][j] = false;
+                    continue;
+                }
+
+                if (j - i < 3 || dp[i + 1][j - 1]) dp[i][j] = true;
+
+                if (dp[i][j] && maxLen < j - i + 1) {
+                    maxLen = j - i + 1;
+                    start = i;
+                }
+            }
+        }
+
+        System.out.printf("start: %d, maxLen: %d", start, maxLen);
+        return s.substring(start, start + maxLen);
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println("ans: " + solution.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}));
+        System.out.println("ans: " + solution.longestPalindrome("bb"));
     }
 }
