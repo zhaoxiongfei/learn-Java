@@ -98,8 +98,52 @@ public class Solution {
         return Math.max(max, map.size());
     }
 
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int l1 = nums1.length;
+        int l2 = nums2.length;
+        int len = l1 + l2;
+        var a = new int[len];
+        int i = 0;
+        int j = 0;
+        while (i < l1 || j < l2) {
+            if (i == l1) {
+                while (j < l2) {
+                    a[i + j] = nums2[j];
+                    j += 1;
+                }
+                break;
+            }
+            if (j == l2) {
+                while (i < l1) {
+                    a[i + j] = nums1[i];
+                    i += 1;
+                }
+                break;
+            }
+            if (nums1[i] < nums2[j]) {
+                a[i + j] = nums1[i];
+                i += 1;
+            } else {
+                a[i + j] = nums2[j];
+                j += 1;
+            }
+        }
+
+        double ans;
+        int m = (int) len / 2;
+        int mSub = m - 1;
+
+        if (len % 2 == 1) {
+            ans = a[m];
+        } else {
+            ans = (double) (a[m] + a[mSub]) / 2;
+        }
+
+        return ans;
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.printf("lengthOfLongestSubstring: %d", solution.lengthOfLongestSubstring("bpfbhmipx"));
+        System.out.println("ans: " + solution.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}));
     }
 }
