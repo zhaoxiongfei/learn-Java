@@ -178,6 +178,11 @@ public class Solution {
         return s.substring(start, start + maxLen);
     }
 
+    // T6 Z 字形变换
+    public String convert(String s, int numRows) {
+
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         System.out.println("ans: " + solution.longestPalindrome("bb"));
